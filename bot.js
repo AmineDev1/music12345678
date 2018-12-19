@@ -412,4 +412,20 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+
+client.on('message', msg => {
+
+    if (msg.content == '3join') { /// هنا اكتب الامر و البرفيكس
+        if (msg.member.voiceChannel) {
+
+     if (msg.member.voiceChannel.joinable) {
+         msg.member.voiceChannel.join().then(msg.react('white_check_mark'));
+     }
+    }
+}
+})
+client.on('ready', () => {
+    client.channels.get("508161402805026818").join();
+    });
+
 client.login(process.env.BOT_TOKEN);
